@@ -1,0 +1,4 @@
+# m h  dom mon dow   command
+0 8 * * 1-4 sh /home/alexis/System/github.sh
+30 17 * * 5 sh /home/alexis/System/github.sh
+

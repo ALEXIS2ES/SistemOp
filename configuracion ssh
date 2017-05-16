@@ -1,0 +1,94 @@
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ ssh-keygen -t rsa -C "vccamerccoa@unac.edu.co"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/lexis/.ssh/id_rsa): 
+/home/lexis/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/lexis/.ssh/id_rsa.
+Your public key has been saved in /home/lexis/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:2hv0MWwvFiMSKT4gdjEgQZz3OI/AkGMqLyT0YZucueA vccamerccoa@unac.edu.co
+The key's randomart image is:
++---[RSA 2048]----+
+|==oo             |
+|== +o  .         |
+|Bo*.X o          |
+|=*.% o . .       |
+|=.o B . S B      |
+|.E.o o = + *     |
+| .    . o + .    |
+|         + .     |
+|        .        |
++----[SHA256]-----+
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ eval "$(ssh-agent -s)" ¬¬ ssh-add ~/.ssh/id_rsa
+Agent pid 8958
+¬¬: no se encontró la orden
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
+Agent pid 8962
+Identity added: /home/lexis/.ssh/id_rsa (/home/lexis/.ssh/id_rsa)
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ sudo apt-get install xclip
+[sudo] password for lexis: 
+Leyendo lista de paquetes... Hecho
+Creando árbol de dependencias       
+Leyendo la información de estado... Hecho
+Se instalarán los siguientes paquetes NUEVOS:
+  xclip
+0 actualizados, 1 nuevos se instalarán, 0 para eliminar y 182 no actualizados.
+Se necesita descargar 17,0 kB de archivos.
+Se utilizarán 72,7 kB de espacio de disco adicional después de esta operación.
+Des:1 http://pe.archive.ubuntu.com/ubuntu xenial/universe amd64 xclip amd64 0.12+svn84-4 [17,0 kB]
+Descargados 17,0 kB en 6s (2.578 B/s)
+Seleccionando el paquete xclip previamente no seleccionado.
+(Leyendo la base de datos ... 179580 ficheros o directorios instalados actualmente.)
+Preparando para desempaquetar .../xclip_0.12+svn84-4_amd64.deb ...
+Desempaquetando xclip (0.12+svn84-4) ...
+Procesando disparadores para man-db (2.7.5-1) ...
+Configurando xclip (0.12+svn84-4) ...
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ xclip -sel clip < ~/.ssh/id_rsa.pub
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ ~/.ssh/id_rsa.pub
+bash: /home/lexis/.ssh/id_rsa.pub: Permiso denegado
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ cat .ssh
+cat: .ssh: Es un directorio
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKjnAmrQMDUF1/bCbn87bUH6xd3qycwFH761X3oPhv1gUeuaTp3E8YsZQQ0w5MvwJUU/vsIxaJ9AXWtDGeKUxVNIb9JrVuaaLp4Xn5xQCrwAFto72VqgqMZ6GTEWcmHGVUUgXxIBWUNrfAOUo2u3LT7Y/d/O+ZKPquggKJQYJXdZN3i8PAMsZedGPU+uEhvUvI8jyMkBJjrq2+hhSIdrL53YvkzvjmS4OQeTvQ2qk3esDxH5nDoYydVyoXKjolAX7K2Vpqk4D2nVS2N9iZ54uyK6irdVScumj/3XTjazpck9IoFBWM03ID2nXC6ajerDxZmR/upSOuHE90K+JaVaf1 vccamerccoa@unac.edu.co
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ ssh -T git@github.com
+Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+Hi ALEXIS2ES! You've successfully authenticated, but GitHub does not provide shell access.
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ cat ~/.ssh/id_rsa.pub | ssh usuario@ip_remota "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+ssh: Could not resolve hostname ip_remota: Name or service not known
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ cat ~/.ssh/id_rsa.pub | ssh usuario@ip_remota "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+ssh: Could not resolve hostname ip_remota: Name or service not known
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ ssh -T git@github.com
+Hi ALEXIS2ES! You've successfully authenticated, but GitHub does not provide shell access.
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ ssh -T -p 443 git@ssh.github.com
+The authenticity of host '[ssh.github.com]:443 ([192.30.253.122]:443)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? y
+Please type 'yes' or 'no': yes
+Warning: Permanently added '[ssh.github.com]:443,[192.30.253.122]:443' (RSA) to the list of known hosts.
+Hi ALEXIS2ES! You've successfully authenticated, but GitHub does not provide shell access.
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ git init
+error: could not lock config file /home/lexis/.git/config: Permiso denegado
+fatal: Could not set 'core.repositoryformatversion' to '0'
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ mkdir System
+lexis@lexis-Lenovo-YOGA-510-14ISK:~$ cd System
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ nano index.html
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ git init
+Initialized empty Git repository in /home/lexis/System/.git/
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ git add .
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ git commit -m 'tarde'
+[master (root-commit) 468fbd8] tarde
+ 1 file changed, 12 insertions(+)
+ create mode 100644 index.html
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ git remote add origin git@github.com:ALEXIS2ES/SistemOp.git
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 317 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:ALEXIS2ES/SistemOp.git
+ * [new branch]      master -> master
+lexis@lexis-Lenovo-YOGA-510-14ISK:~/System$ 
+
